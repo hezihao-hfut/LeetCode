@@ -275,7 +275,103 @@ public class JavaNotebook {
         boolean hasApple = Arrays.stream(fruits).anyMatch(fruit -> fruit.equals("苹果"));
         System.out.println("数组中是否包含'苹果': " + hasApple);
     }
-    
+
+    /**
+     * String 用法示例
+     */
+    public void stringUsage() {
+        // 字符串创建
+        String str1 = "Hello";
+        String str2 = new String("World");
+        System.out.println("两个字符串: " + str1 + ", " + str2);
+        
+        // 字符串连接
+        String concat1 = str1 + " " + str2; // 使用 + 运算符
+        String concat2 = str1.concat(" ").concat(str2); // 使用 concat 方法
+        System.out.println("连接结果1: " + concat1);
+        System.out.println("连接结果2: " + concat2);
+        
+        // 字符串长度
+        System.out.println("字符串长度: " + concat1.length());
+        
+        // 字符串比较
+        System.out.println("两个连接字符串是否相等: " + concat1.equals(concat2)); // true
+        System.out.println("比较字符串: " + str1.compareTo(str2)); // 负数表示 str1 < str2
+        System.out.println("忽略大小写比较: " + "hello".equalsIgnoreCase(str1)); // true
+        
+        // 字符串搜索
+        String sentence = "Java is a programming language";
+        System.out.println("第一个字符: " + sentence.charAt(0)); // 'J'
+        System.out.println("programming 的位置: " + sentence.indexOf("programming")); // 返回起始位置
+        System.out.println("最后一个 'a' 的位置: " + sentence.lastIndexOf("a")); // 从后向前搜索
+        System.out.println("是否包含 'Java': " + sentence.contains("Java")); // true
+        System.out.println("是否以 'Java' 开头: " + sentence.startsWith("Java")); // true
+        System.out.println("是否以 'language' 结尾: " + sentence.endsWith("language")); // true
+        
+        // 提取子字符串
+        System.out.println("子字符串(7,9): " + sentence.substring(7, 9)); // "is"
+        System.out.println("子字符串(0,4): " + sentence.substring(0, 4)); // "Java"
+        
+        // 字符串替换
+        String modified = sentence.replace("Java", "Python");
+        System.out.println("替换后: " + modified);
+        
+        // 字符串修剪
+        String withSpaces = "  Trim me  ";
+        System.out.println("原始字符串: '" + withSpaces + "'");
+        System.out.println("修剪后字符串: '" + withSpaces.trim() + "'");
+        
+        // 字符串大小写转换
+        System.out.println("转大写: " + sentence.toUpperCase());
+        System.out.println("转小写: " + sentence.toLowerCase());
+        
+        // 字符串分割
+        String csvData = "apple,banana,orange,grape";
+        String[] fruits = csvData.split(",");
+        System.out.println("分割后的数组: " + Arrays.toString(fruits));
+        
+        // 字符串与其他类型的转换
+        int num = 123;
+        String numStr = String.valueOf(num); // int 转 String
+        System.out.println("数字转字符串: " + numStr);
+        
+        String floatStr = "3.14";
+        double pi = Double.parseDouble(floatStr); // String 转 double
+        System.out.println("字符串转浮点数: " + pi);
+        
+        // 字符串格式化
+        String formatted = String.format("名字: %s, 年龄: %d", "张三", 25);
+        System.out.println("格式化字符串: " + formatted);
+        
+        // 字符串与字符数组的转换
+        char[] charArray = str1.toCharArray(); // 字符串转字符数组
+        System.out.println("字符数组: " + Arrays.toString(charArray));
+        
+        String fromChars = new String(charArray); // 字符数组转字符串
+        System.out.println("从字符数组创建字符串: " + fromChars);
+        
+        // 字符串构建器 (StringBuilder) - 适用于频繁修改字符串的场景
+        StringBuilder sb = new StringBuilder();
+        sb.append("Hello");
+        sb.append(" ");
+        sb.append("World");
+        sb.append("!");
+        System.out.println("StringBuilder 结果: " + sb.toString());
+        
+        // StringBuilder 其他操作
+        sb.insert(5, ","); // 在指定位置插入
+        System.out.println("插入后: " + sb.toString());
+        
+        sb.replace(7, 12, "Java"); // 替换指定范围的字符
+        System.out.println("替换后: " + sb.toString());
+        
+        sb.delete(5, 7); // 删除指定范围的字符
+        System.out.println("删除后: " + sb.toString());
+        
+        sb.reverse(); // 反转字符串
+        System.out.println("反转后: " + sb.toString());
+    }
+
     /**
      * 主函数 - 用于测试各个笔记示例
      */
@@ -290,8 +386,11 @@ public class JavaNotebook {
         // System.out.println("\n===== HashSet 用法示例 =====");
         // notebook.hashSetUsage();
         
-        System.out.println("\n===== Arrays 工具类用法示例 =====");
-        notebook.arraysUsage();
+        // System.out.println("\n===== Arrays 工具类用法示例 =====");
+        // notebook.arraysUsage();
+        
+        System.out.println("\n===== String 用法示例 =====");
+        notebook.stringUsage();
     }
 }
 
