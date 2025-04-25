@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Stack;
 
 /**
  * Java 编程笔记本
@@ -355,7 +356,7 @@ public class JavaNotebook {
         sb.append("Hello");
         sb.append(" ");
         sb.append("World");
-        sb.append("!");
+        sb.append('!');
         System.out.println("StringBuilder 结果: " + sb.toString());
         
         // StringBuilder 其他操作
@@ -370,6 +371,52 @@ public class JavaNotebook {
         
         sb.reverse(); // 反转字符串
         System.out.println("反转后: " + sb.toString());
+    }
+
+    /**
+     * Stack (栈) 用法示例
+     */
+    public void stackUsage() {
+        // Stack<E> 是一个后进先出 (LIFO) 的数据结构
+        Stack<String> stack = new Stack<>(); // 推荐使用 Deque 接口及其实现如 ArrayDeque，但这里演示 Stack 类
+
+        // 压栈 (push) - 向栈顶添加元素
+        stack.push("Apple");
+        stack.push("Banana");
+        stack.push("Cherry");
+        System.out.println("压栈后: " + stack); // 输出: [Apple, Banana, Cherry]
+
+        // 查看栈顶元素 (peek) - 不移除元素
+        String topElement = stack.peek();
+        System.out.println("栈顶元素 (peek): " + topElement); // 输出: Cherry
+        System.out.println("peek 后栈内容: " + stack); // 输出: [Apple, Banana, Cherry]
+
+        // 弹栈 (pop) - 移除并返回栈顶元素
+        String poppedElement = stack.pop();
+        System.out.println("弹出的元素 (pop): " + poppedElement); // 输出: Cherry
+        System.out.println("pop 后栈内容: " + stack); // 输出: [Apple, Banana]
+
+        // 检查栈是否为空 (isEmpty)
+        System.out.println("栈是否为空: " + stack.isEmpty()); // 输出: false
+
+        // 查找元素在栈中的位置 (search) - 返回从栈顶开始的1-based位置，找不到返回-1
+        int position = stack.search("Apple");
+        System.out.println("'Apple' 的位置 (从栈顶1开始): " + position); // 输出: 2
+        int notFoundPos = stack.search("Grape");
+        System.out.println("'Grape' 的位置: " + notFoundPos); // 输出: -1
+
+        // 获取栈的大小
+        System.out.println("栈的大小: " + stack.size()); // 输出: 2
+
+        // 遍历栈 (虽然可以，但不常用，通常通过 pop/peek 操作)
+        System.out.println("遍历栈:");
+        for (String item : stack) {
+            System.out.println(item); // 注意：遍历顺序可能不是 LIFO 顺序，取决于实现
+        }
+
+        // 清空栈
+        stack.clear(); // 或者循环调用 pop 直到 isEmpty() 为 true
+        System.out.println("清空后栈是否为空: " + stack.isEmpty()); // 输出: true
     }
 
     /**
@@ -389,8 +436,11 @@ public class JavaNotebook {
         // System.out.println("\n===== Arrays 工具类用法示例 =====");
         // notebook.arraysUsage();
         
-        System.out.println("\n===== String 用法示例 =====");
-        notebook.stringUsage();
+        // System.out.println("\n===== String 用法示例 =====");
+        // notebook.stringUsage();
+
+        System.out.println("\n===== Stack 用法示例 =====");
+        notebook.stackUsage();
     }
 }
 
