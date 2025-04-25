@@ -1,5 +1,5 @@
 public class KMP {
-    public int strStr(String haystack, String needle) {
+    public int kmp(String haystack, String needle) {
         if (needle.isEmpty()) {
             return 0;
         }
@@ -36,8 +36,8 @@ public class KMP {
 
     public static void main(String[] args) {
         KMP kmp = new KMP();
-        System.out.println(kmp.strStr("hello", "ll"));
-        System.out.println(kmp.strStr("aaaaa", "bba"));
-        System.out.println(kmp.strStr("abc", "c"));
+        System.out.println(kmp.kmp("hello", "ll"));
+        System.out.println(kmp.kmp("aaaaa", "bba"));
+        System.out.println(kmp.kmp("abc", "c"));
     }
 }
