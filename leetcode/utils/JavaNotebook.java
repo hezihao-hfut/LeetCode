@@ -30,6 +30,9 @@ public class JavaNotebook {
         
         // 检查是否包含某个键
         System.out.println("是否包含apple: " + map.containsKey("apple")); // 输出: true
+
+        // 检查是否包含某个值
+        System.out.println("是否包含2: " + map.containsValue(2)); // 输出: true
         
         // 遍历
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
@@ -315,7 +318,11 @@ public class JavaNotebook {
         
         // 字符串替换
         String modified = sentence.replace("Java", "Python");
+        String modified2 = sentence.replaceFirst("Java", "Python");
+        String modified3 = sentence.replaceAll("Java", "Python");
         System.out.println("替换后: " + modified);
+        System.out.println("替换后: " + modified2);
+        System.out.println("替换后: " + modified3);
         
         // 字符串修剪
         String withSpaces = "  Trim me  ";
