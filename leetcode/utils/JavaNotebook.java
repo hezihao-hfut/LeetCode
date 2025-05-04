@@ -1,13 +1,14 @@
 package leetcode.utils;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Stack;
 
 /**
  * Java 编程笔记本
@@ -385,7 +386,7 @@ public class JavaNotebook {
      */
     public void stackUsage() {
         // Stack<E> 是一个后进先出 (LIFO) 的数据结构
-        Stack<String> stack = new Stack<>(); // 推荐使用 Deque 接口及其实现如 ArrayDeque，但这里演示 Stack 类
+        Deque<String> stack = new ArrayDeque<>(); // 推荐使用 Deque 接口及其实现如 ArrayDeque，但这里演示 Stack 类
 
         // 压栈 (push) - 向栈顶添加元素
         stack.push("Apple");
@@ -406,13 +407,7 @@ public class JavaNotebook {
         // 检查栈是否为空 (isEmpty)
         System.out.println("栈是否为空: " + stack.isEmpty()); // 输出: false
 
-        // 查找元素在栈中的位置 (search) - 返回从栈顶开始的1-based位置，找不到返回-1
-        int position = stack.search("Apple");
-        System.out.println("'Apple' 的位置 (从栈顶1开始): " + position); // 输出: 2
-        int notFoundPos = stack.search("Grape");
-        System.out.println("'Grape' 的位置: " + notFoundPos); // 输出: -1
-
-        // 获取栈的大小
+         // 获取栈的大小
         System.out.println("栈的大小: " + stack.size()); // 输出: 2
 
         // 遍历栈 (虽然可以，但不常用，通常通过 pop/peek 操作)
