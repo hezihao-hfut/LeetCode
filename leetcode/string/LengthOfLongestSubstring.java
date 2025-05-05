@@ -18,20 +18,20 @@ public class LengthOfLongestSubstring {
         System.out.println("输入: s = " + s);
         System.out.println("输出: " + result);
         System.out.println("预期: " + 3);
-        System.out.println("");
+        System.out.println();
 
         s = "bbbbb";
         result = solution.lengthOfLongestSubstring(s);
         System.out.println("输入: s = " + s);
         System.out.println("输出: " + result);
         System.out.println("预期: " + 1);
-        System.out.println("");
+        System.out.println();
 
         s = "pwwkew";
         result = solution.lengthOfLongestSubstring(s);
         System.out.println("输入: s = " + s);
         System.out.println("输出: " + result);
         System.out.println("预期: " + 3);
-        System.out.println("");
+        System.out.println();
     }
 }

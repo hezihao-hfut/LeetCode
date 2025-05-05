@@ -25,7 +25,7 @@ public class Convert {
         System.out.println("输入: s = " + s + ", numRows = " + numRows);
         System.out.println("输出: " + result);
         System.out.println("预期: " + "PAHNAPLSIIGYIR");
-        System.out.println("");
+        System.out.println();
 
         s = "A";
         numRows = 1;
@@ -33,7 +33,7 @@ public class Convert {
         System.out.println("输入: s = " + s + ", numRows = " + numRows);
         System.out.println("输出: " + result);
         System.out.println("预期: " + "A");
-        System.out.println("");
+        System.out.println();
 
         s = "PAYPALISHIRING";
         numRows = 4;
@@ -41,6 +41,6 @@ public class Convert {
         System.out.println("输入: s = " + s + ", numRows = " + numRows);
         System.out.println("输出: " + result);
         System.out.println("预期: " + "PINALSIGYAHRPI");
-        System.out.println("");
+        System.out.println();
     }
 }

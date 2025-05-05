@@ -44,30 +44,30 @@ public class RomanToInt {
         System.out.println("输入: " + roman1);
         System.out.println("输出：" + romanToInt.romanToInt(roman1));
         System.out.println("预期: " + 3);
-        System.out.println("");
+        System.out.println();
 
         String roman2 = "IV";
         System.out.println("输入: " + roman2);
         System.out.println("输出：" + romanToInt.romanToInt(roman2)); // 4
         System.out.println("预期: " + 4);
-        System.out.println("");
+        System.out.println();
 
         String roman3 = "IX";
         System.out.println("输入: " + roman3);
         System.out.println("输出：" + romanToInt.romanToInt(roman3)); // 9
         System.out.println("预期: " + 9);
-        System.out.println("");
+        System.out.println();
 
         String roman4 = "LVIII";
         System.out.println("输入: " + roman4);
         System.out.println("输出：" + romanToInt.romanToInt(roman4)); // 58
         System.out.println("预期: " + 58);
-        System.out.println("");
+        System.out.println();
 
         String roman5 = "MCMXCIV";
         System.out.println("输入: " + roman5);
         System.out.println("输出：" + romanToInt.romanToInt(roman5)); // 1994
         System.out.println("预期: " + 1994);
-        System.out.println("");
+        System.out.println();
     }
 }

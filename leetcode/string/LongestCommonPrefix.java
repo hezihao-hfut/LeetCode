@@ -51,24 +51,24 @@ public class LongestCommonPrefix {
         System.out.println("输入: strs = " + String.join(", ", strs1));
         System.out.println("输出：" + lcp.longestCommonPrefix2(strs1)); // "fl"
         System.out.println("预期: " + "fl");
-        System.out.println("");
+        System.out.println();
 
         String[] strs2 = { "dog", "racecar", "car" };
         System.out.println("输入: strs = " + String.join(", ", strs2));
         System.out.println("输出：" + lcp.longestCommonPrefix2(strs2)); // ""
         System.out.println("预期: " + "");
-        System.out.println("");
+        System.out.println();
 
         String[] strs3 = { "ab", "a" };
         System.out.println("输入: strs = " + String.join(", ", strs3));
         System.out.println("输出：" + lcp.longestCommonPrefix2(strs3)); // ""
         System.out.println("预期: " + "a");
-        System.out.println("");
+        System.out.println();
 
         String[] strs4 = { "abc" };
         System.out.println("输入: strs = " + String.join(", ", strs4));
         System.out.println("输出：" + lcp.longestCommonPrefix2(strs4)); // ""
         System.out.println("预期: " + "abc");
-        System.out.println("");
+        System.out.println();
     }
 }

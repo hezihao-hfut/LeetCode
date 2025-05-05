@@ -24,18 +24,18 @@ public class LongestSubPalindrome {
         System.out.println("输入: s = " + s);
         System.out.println("输出：" + lsp.longestPalindrome(s)); // "bab" or "aba"
         System.out.println("预期: " + "bab or aba");
-        System.out.println("");
+        System.out.println();
 
         s = "cbbd";
         System.out.println("输入: s = " + s);
         System.out.println("输出：" + lsp.longestPalindrome(s)); // "bb"
         System.out.println("预期: " + "bb");
-        System.out.println("");
+        System.out.println();
 
         s = "a";
         System.out.println("输入: s = " + s);
         System.out.println("输出：" + lsp.longestPalindrome(s)); // "a"
         System.out.println("预期: " + "a");
-        System.out.println("");
+        System.out.println();
     }
 }
