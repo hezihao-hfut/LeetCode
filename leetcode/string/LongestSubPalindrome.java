@@ -12,9 +12,7 @@ public class LongestSubPalindrome {
      * @return 最长回文子串
      */
     public String longestPalindrome(String s) {
-        if (s == null || s.length() == 0) {
-            return "";
-        }
+        if (s == null || s.isEmpty()) return "";
         return "";
     }
 
