@@ -13,8 +13,26 @@ public class Convert {
      * @return 转换后的字符串
      */
     public String convert(String s, int numRows) {
-        
-        return "";
+        if (numRows == 1) return s;
+        StringBuilder[] rowBuilders = new StringBuilder[numRows];
+        for (int k = 0; k < numRows; k++) {
+            rowBuilders[k] = new StringBuilder();
+        }
+
+        StringBuilder result = new StringBuilder();
+        int flag = 1;
+        int colIndex = 0;
+        for (int i = 0; i < s.length(); i++) {
+            rowBuilders[colIndex].append(s.charAt(i));
+            colIndex += flag;
+            if (colIndex == numRows - 1 || colIndex == 0) {
+                flag = -flag;
+            }
+        }
+        for (StringBuilder sb : rowBuilders) {
+            result.append(sb);
+        }
+        return result.toString();
     }
 
     public static void main(String[] args) {
@@ -27,12 +45,12 @@ public class Convert {
         System.out.println("预期: " + "PAHNAPLSIIGYIR");
         System.out.println();
 
-        s = "A";
+        s = "AB";
         numRows = 1;
         result = convert.convert(s, numRows);
         System.out.println("输入: s = " + s + ", numRows = " + numRows);
         System.out.println("输出: " + result);
-        System.out.println("预期: " + "A");
+        System.out.println("预期: " + "AB");
         System.out.println();
 
         s = "PAYPALISHIRING";
