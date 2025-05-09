@@ -20,7 +20,21 @@ public class IntToRoman {
      * @return 罗马数字表示
      */
     public String intToRoman(int num) {
-        return "";
+        // 定义罗马数字对应的数值和符号
+        int[] values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+        String[] symbols = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+
+        StringBuilder res = new StringBuilder();
+
+        // 遍历数值数组
+        for (int i = 0; i < values.length && num > 0; i++) {
+            // 当输入的数字大于等于当前数值时，追加对应的罗马符号
+            while (num >= values[i]) {
+                num -= values[i];
+                res.append(symbols[i]);
+            }
+        }
+        return res.toString();
     }
 
     public static void main(String[] args) {
