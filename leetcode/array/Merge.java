@@ -19,7 +19,7 @@ public class Merge {
      * @param n     第二个数组的有效元素个数
      */
     public void merge(int[] nums1, int m, int[] nums2, int n) {
-        int nums[] = new int[m + n];
+        int[] nums = new int[m + n];
         int s1 = 0, s2 = 0, s = 0;
         while (s < nums.length) {
             if (s1 == m) {

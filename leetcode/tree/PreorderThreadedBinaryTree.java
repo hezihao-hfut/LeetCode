@@ -3,23 +3,6 @@ package leetcode.tree;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 定义线索二叉树节点
- */
-class ThreadedTreeNode {
-    int val;
-    ThreadedTreeNode left;
-    ThreadedTreeNode right;
-    boolean ltag; // 左标志位, true表示指向前驱/后继(线索), false表示指向孩子
-    boolean rtag; // 右标志位, true表示指向前驱/后继(线索), false表示指向孩子
-
-    ThreadedTreeNode(int val) {
-        this.val = val;
-        this.ltag = true; // 默认为线索
-        this.rtag = true; // 默认为线索
-    }
-}
-
 public class PreorderThreadedBinaryTree {
 
     private static ThreadedTreeNode pre = null; // 用于线索化过程，记录前驱节点

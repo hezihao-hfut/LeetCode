@@ -12,7 +12,6 @@ public class MoveZeroes {
      * 使用双指针法，将非零元素移动到数组前面，然后剩下的位置补0。
      * 
      * @param nums 整数数组
-     * @return 移动后的数组
      */
     public void moveZeroes(int[] nums) {
         if (nums == null || nums.length == 0) {

@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.PriorityQueue;
 import java.util.Set;
 
 /**
@@ -382,43 +383,128 @@ public class JavaNotebook {
     }
 
     /**
-     * Stack (栈) 用法示例
+     * Deque (双端队列) 用法示例
      */
-    public void stackUsage() {
-        // Stack<E> 是一个后进先出 (LIFO) 的数据结构
-        Deque<String> stack = new ArrayDeque<>(); // 推荐使用 Deque 接口及其实现如 ArrayDeque，但这里演示 Stack 类
-
-        // 压栈 (push) - 向栈顶添加元素
-        stack.push("Apple");
-        stack.push("Banana");
-        stack.push("Cherry");
-        System.out.println("压栈后: " + stack); // 输出: [Apple, Banana, Cherry]
-
-        // 查看栈顶元素 (peek) - 不移除元素
-        String topElement = stack.peek();
-        System.out.println("栈顶元素 (peek): " + topElement); // 输出: Cherry
-        System.out.println("peek 后栈内容: " + stack); // 输出: [Apple, Banana, Cherry]
-
-        // 弹栈 (pop) - 移除并返回栈顶元素
-        String poppedElement = stack.pop();
-        System.out.println("弹出的元素 (pop): " + poppedElement); // 输出: Cherry
-        System.out.println("pop 后栈内容: " + stack); // 输出: [Apple, Banana]
-
-        // 检查栈是否为空 (isEmpty)
-        System.out.println("栈是否为空: " + stack.isEmpty()); // 输出: false
-
-         // 获取栈的大小
-        System.out.println("栈的大小: " + stack.size()); // 输出: 2
-
-        // 遍历栈 (虽然可以，但不常用，通常通过 pop/peek 操作)
-        System.out.println("遍历栈:");
-        for (String item : stack) {
-            System.out.println(item); // 注意：遍历顺序可能不是 LIFO 顺序，取决于实现
+    public void dequeUsage() {
+        // 创建双端队列
+        Deque<String> deque = new ArrayDeque<>();
+        
+        // 在队列两端添加元素
+        deque.addFirst("First");  // 在队首添加
+        deque.addLast("Last");    // 在队尾添加
+        deque.offerFirst("Front"); // 在队首添加（推荐）
+        deque.offerLast("Back");   // 在队尾添加（推荐）
+        System.out.println("添加元素后: " + deque); // 输出: [Front, First, Last, Back]
+        
+        // 查看队列两端的元素
+        System.out.println("队首元素: " + deque.peekFirst()); // 输出: Front
+        System.out.println("队尾元素: " + deque.peekLast()); // 输出: Back
+        
+        // 移除队列两端的元素
+        String first = deque.pollFirst(); // 移除并返回队首元素
+        String last = deque.pollLast();   // 移除并返回队尾元素
+        System.out.println("移除的队首元素: " + first); // 输出: Front
+        System.out.println("移除的队尾元素: " + last); // 输出: Back
+        System.out.println("移除后: " + deque); // 输出: [First, Last]
+        
+        // 作为栈使用
+        deque.push("Stack1"); // 压栈（在队首添加）
+        deque.push("Stack2");
+        System.out.println("作为栈使用: " + deque); // 输出: [Stack2, Stack1, First, Last]
+        
+        String popped = deque.pop(); // 弹栈（移除队首元素）
+        System.out.println("弹出的元素: " + popped); // 输出: Stack2
+        
+        // 作为队列使用
+        deque.offer("Queue1"); // 入队（在队尾添加）
+        deque.offer("Queue2");
+        System.out.println("作为队列使用: " + deque); // 输出: [Stack1, First, Last, Queue1, Queue2]
+        
+        String polled = deque.poll(); // 出队（移除队首元素）
+        System.out.println("出队的元素: " + polled); // 输出: Stack1
+        
+        // 检查元素
+        System.out.println("是否包含'First': " + deque.contains("First")); // 输出: true
+        
+        // 获取大小
+        System.out.println("队列大小: " + deque.size()); // 输出: 4
+        
+        // 遍历队列
+        System.out.println("遍历队列:");
+        for (String item : deque) {
+            System.out.println(item);
         }
-
-        // 清空栈
-        stack.clear(); // 或者循环调用 pop 直到 isEmpty() 为 true
-        System.out.println("清空后栈是否为空: " + stack.isEmpty()); // 输出: true
+        
+        // 清空队列
+        deque.clear();
+        System.out.println("清空后是否为空: " + deque.isEmpty()); // 输出: true
+    }
+    
+    /**
+     * PriorityQueue (优先队列) 用法示例
+     */
+    public void priorityQueueUsage() {
+        // 创建最小堆（默认）
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+        
+        // 添加元素
+        minHeap.offer(5);
+        minHeap.offer(2);
+        minHeap.offer(8);
+        minHeap.offer(1);
+        minHeap.offer(9);
+        System.out.println("最小堆: " + minHeap); // 输出: [1, 2, 8, 5, 9]
+        
+        // 查看堆顶元素
+        System.out.println("堆顶元素: " + minHeap.peek()); // 输出: 1
+        
+        // 移除堆顶元素
+        int min = minHeap.poll();
+        System.out.println("移除的最小元素: " + min); // 输出: 1
+        System.out.println("移除后: " + minHeap); // 输出: [2, 5, 8, 9]
+        
+        // 创建最大堆
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>((a, b) -> b - a);
+        maxHeap.offer(5);
+        maxHeap.offer(2);
+        maxHeap.offer(8);
+        maxHeap.offer(1);
+        maxHeap.offer(9);
+        System.out.println("最大堆: " + maxHeap); // 输出: [9, 8, 5, 1, 2]
+        
+        // 使用自定义对象
+        PriorityQueue<Student> studentQueue = new PriorityQueue<>((a, b) -> b.score - a.score);
+        studentQueue.offer(new Student("张三", 85));
+        studentQueue.offer(new Student("李四", 92));
+        studentQueue.offer(new Student("王五", 78));
+        
+        System.out.println("按分数排序的学生:");
+        while (!studentQueue.isEmpty()) {
+            Student student = studentQueue.poll();
+            System.out.println(student.name + ": " + student.score);
+        }
+        
+        // 使用比较器
+        PriorityQueue<String> stringQueue = new PriorityQueue<>(String::compareTo);
+        stringQueue.offer("banana");
+        stringQueue.offer("apple");
+        stringQueue.offer("cherry");
+        
+        System.out.println("按字典序排序的字符串:");
+        while (!stringQueue.isEmpty()) {
+            System.out.println(stringQueue.poll());
+        }
+    }
+    
+    // 用于演示优先队列的学生类
+    private static class Student {
+        String name;
+        int score;
+        
+        Student(String name, int score) {
+            this.name = name;
+            this.score = score;
+        }
     }
 
     /**
@@ -440,36 +526,11 @@ public class JavaNotebook {
         
         // System.out.println("\n===== String 用法示例 =====");
         // notebook.stringUsage();
-
-        System.out.println("\n===== Stack 用法示例 =====");
-        notebook.stackUsage();
+       
+        System.out.println("\n===== Deque 用法示例 =====");
+        notebook.dequeUsage();
+        
+        System.out.println("\n===== PriorityQueue 用法示例 =====");
+        notebook.priorityQueueUsage();
     }
 }
-
-/**
- * LeetCode 常用的链表节点定义
- */
-class ListNode {
-    int val;
-    ListNode next;
-    ListNode() {}
-    ListNode(int val) { this.val = val; }
-    ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-}
-
-/**
- * LeetCode 常用的二叉树节点定义
- */
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-    TreeNode() {}
-    TreeNode(int val) { this.val = val; }
-    TreeNode(int val, TreeNode left, TreeNode right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
-}
-
