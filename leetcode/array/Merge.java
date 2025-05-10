@@ -29,9 +29,7 @@ public class Merge {
             } else
                 nums[s++] = (nums1[s1] <= nums2[s2]) ? nums1[s1++] : nums2[s2++];
         }
-        for (int i = 0; i != m + n; ++i) {
-            nums1[i] = nums[i];
-        }
+        if (m + n >= 0) System.arraycopy(nums, 0, nums1, 0, m + n);
     }
 
     // 优化版本：从后往前合并
