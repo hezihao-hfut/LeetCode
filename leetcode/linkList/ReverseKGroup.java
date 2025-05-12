@@ -2,7 +2,6 @@ package leetcode.linkList;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.LinkedList;
 
 public class ReverseKGroup {
     public ListNode reverseKGroup(ListNode head, int k) {
