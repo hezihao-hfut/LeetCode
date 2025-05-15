@@ -1,0 +1,3 @@
+Hello, Java I/O Streams!
+This is a test file.
+第三行包含中文。
