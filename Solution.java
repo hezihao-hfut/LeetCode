@@ -7,6 +7,7 @@ public class Solution {
         int n = scanner.nextInt();
         scanner.nextLine();
         String input = scanner.nextLine();
+        scanner.close();
 
         // 假设数组的最大索引不超过 100（可根据实际调整）
         int[][] a = new int[n + 1][n + 1];
@@ -32,6 +33,5 @@ public class Solution {
                 break;
             }
         }
-        return;
     }
 }
