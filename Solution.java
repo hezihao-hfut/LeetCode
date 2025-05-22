@@ -1,37 +1,32 @@
-import java.util.Scanner;
-import java.util.regex.*;
+import leetcode.tree.TreeNode;
 
-public class Solution {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-        scanner.nextLine();
-        String input = scanner.nextLine();
-        scanner.close();
+import java.util.Deque;
+import java.util.LinkedList;
 
-        // 假设数组的最大索引不超过 100（可根据实际调整）
-        int[][] a = new int[n + 1][n + 1];
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public boolean isValidBST(TreeNode root) {
+        return isValid(root, null, null);
+    }
 
-        // 使用正则表达式提取每一对数字
-        Pattern pattern = Pattern.compile("\\[(\\d+),(\\d+)]");
-        Matcher matcher = pattern.matcher(input);
-
-        while (matcher.find()) {
-            int x = Integer.parseInt(matcher.group(1));
-            int y = Integer.parseInt(matcher.group(2));
-            a[x][y] = 1;
-        }
-        for (int i = 1; i <= n; ++i) {
-            int inDegree = 0;
-            int outDegree = 0;
-            for (int j = 1; j <= n; ++j)
-                if (a[i][j] == 1) outDegree++;
-            for (int j = 1; j <= n; ++j)
-                if (a[j][i] == 1) inDegree++;
-            if (inDegree == n - 1 && outDegree == 0) {
-                System.out.println(i);
-                break;
-            }
-        }
+    private boolean isValid(TreeNode root, TreeNode left, TreeNode right) {
+        if (root == null) return true;
+        if (left != null && root.val <= left.val) return false;
+        if (right != null && root.val >= right.val) return false;
+        return isValid(root.left, left, root) && isValid(root.right, root, right);
     }
 }
