@@ -1,7 +1,6 @@
 package leetcode.tree;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * 二叉树节点定义
@@ -24,9 +23,7 @@ public class BuildTree {
      * @return 构建好的二叉树的根节点
      */
     public static TreeNode buildTree(Integer[] nums) {
-        if (nums == null || nums.length == 0 || nums[0] == null) {
-            return null;
-        }
+        if (nums == null || nums.length == 0) return null;
         
         TreeNode root = new TreeNode(nums[0]);
         Queue<TreeNode> queue = new LinkedList<>();
@@ -62,45 +59,88 @@ public class BuildTree {
      * 前序遍历打印二叉树 (根-左-右)
      */
     public static void preOrderTraversal(TreeNode root) {
-        if (root == null) {
-            return;
-        }
+        if (root == null) return;
         System.out.print(root.val + " ");
         preOrderTraversal(root.left);
         preOrderTraversal(root.right);
+    }
+
+    public static void preOrderTraversal2(TreeNode root) {
+        if (root == null) return;
+        Deque<TreeNode> stack = new LinkedList<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode curr = stack.pop();
+            System.out.print(curr.val + " ");
+            if (curr.right != null) stack.push(curr.right);
+            if (curr.left != null) stack.push(curr.left);
+        }
     }
     
     /**
      * 中序遍历打印二叉树 (左-根-右)
      */
     public static void inOrderTraversal(TreeNode root) {
-        if (root == null) {
-            return;
-        }
+        if (root == null) return;
         inOrderTraversal(root.left);
         System.out.print(root.val + " ");
         inOrderTraversal(root.right);
+    }
+
+    public static void inOrderTraversal2(TreeNode root) {
+        if (root == null) return;
+        Deque<TreeNode> stack = new LinkedList<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            while (root.left != null) {
+                root = root.left;
+                stack.push(root);
+            }
+            root = stack.pop();
+            System.out.print(root.val + " ");
+            if (root.right != null) {
+                stack.push(root.right);
+                root = root.right;
+            }
+        }
     }
     
     /**
      * 后序遍历打印二叉树 (左-右-根)
      */
     public static void postOrderTraversal(TreeNode root) {
-        if (root == null) {
-            return;
-        }
+        if (root == null) return;
         postOrderTraversal(root.left);
         postOrderTraversal(root.right);
         System.out.print(root.val + " ");
+    }
+
+    public static void postOrderTraversal2(TreeNode root) {
+        if (root == null) return;
+        Deque<TreeNode> stack = new LinkedList<>();
+        stack.push(root);
+        List<Integer> result = new ArrayList<>();
+        while (!stack.isEmpty()) {
+            TreeNode curr = stack.pop();
+            result.add(curr.val);
+            if (curr.left != null) stack.push(curr.left);
+            if (curr.right != null) stack.push(curr.right);
+        }
+        // 使用Collections.reverse()方法，原地反转
+        Collections.reverse(result);
+
+        // 使用reversed()方法，创建一个新的列表，并反转它
+        //result = result.reversed();
+        for (Integer i : result) {
+            System.out.print(i + " ");
+        }
     }
     
     /**
      * 层序遍历打印二叉树
      */
     public static void levelOrderTraversal(TreeNode root) {
-        if (root == null) {
-            return;
-        }
+        if (root == null) return;
         
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
@@ -129,19 +169,25 @@ public class BuildTree {
         Integer[] nums = {3, 9, 20, null, null, 15, 7};
         TreeNode root = buildTree(nums);
         
-        System.out.print("前序遍历: ");
+        System.out.println("前序遍历: ");
         preOrderTraversal(root);
         System.out.println();
+        preOrderTraversal2(root);
+        System.out.println();
         
-        System.out.print("中序遍历: ");
+        System.out.println("中序遍历: ");
         inOrderTraversal(root);
         System.out.println();
-        
-        System.out.print("后序遍历: ");
-        postOrderTraversal(root);
+        inOrderTraversal2(root);
         System.out.println();
         
-        System.out.print("层序遍历: ");
+        System.out.println("后序遍历: ");
+        postOrderTraversal(root);
+        System.out.println();
+        postOrderTraversal2(root);
+        System.out.println();
+        
+        System.out.println("层序遍历: ");
         levelOrderTraversal(root);
         System.out.println();
     }

@@ -34,15 +34,15 @@ public class IsValidBST {
      * @return
      */
     public boolean isValidBST2(TreeNode root) {
-        Deque<TreeNode> deque = new LinkedList<>();
+        Deque<TreeNode> stack = new LinkedList<>();
         long pre_num = Long.MIN_VALUE;
         TreeNode curr = root;
-        while (curr != null || !deque.isEmpty()) {
+        while (curr != null || !stack.isEmpty()) {
             while (curr != null) {
-                deque.offerFirst(curr);
+                stack.push(curr);
                 curr = curr.left;
             }
-            curr = deque.pollFirst();
+            curr = stack.pop();
             if (curr.val <= pre_num) return false;
             pre_num = curr.val;
             curr = curr.right;
